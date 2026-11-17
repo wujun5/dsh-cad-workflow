@@ -29,7 +29,7 @@ if (-not $dshHome -or -not $profile) {
 $skillsSrc = Join-Path $Root 'skills'
 $skillsDst = Join-Path $dshHome 'skills'
 Write-Host "[install] Skills -> $skillsDst"
-foreach ($s in @('cad-spec-driver','cad-confirm-gate','cad-blender-ops','cad-freecad-ops','cad-verify')) {
+foreach ($s in @('cad-spec-driver','cad-confirm-gate','cad-blender-ops','cad-freecad-ops','cad-verify','cad-three-view')) {
   $src = Join-Path $skillsSrc "$s\SKILL.md"
   $dst = Join-Path $skillsDst "$s\SKILL.md"
   if (-not (Test-Path -LiteralPath $src)) { Write-Host "[install]   MISSING skill source: $src"; continue }

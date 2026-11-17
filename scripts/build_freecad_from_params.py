@@ -66,6 +66,22 @@ def build_shape(shape, p):
         h = float(p["height"])
         return Part.makeBox(l, w, h, App.Vector(0, 0, 0))
 
+    if shape == "stepped_flange":
+        # Classic three-view reconstruction demo: a two-step round flange with
+        # a coaxial through hole. All dimensions come from the drawing's views.
+        base_d = float(p["base_d"])
+        base_h = float(p["base_h"])
+        boss_d = float(p["boss_d"])
+        boss_h = float(p["boss_h"])
+        hole_d = float(p["hole_d"])
+        base = Part.makeCylinder(base_d / 2.0, base_h, App.Vector(0, 0, 0))
+        boss = Part.makeCylinder(boss_d / 2.0, boss_h, App.Vector(0, 0, base_h))
+        union = base.fuse(boss)
+        cutter = Part.makeCylinder(
+            hole_d / 2.0, (base_h + boss_h) * 3, App.Vector(0, 0, -base_h)
+        )
+        return union.cut(cutter).removeSplitter()
+
     raise ValueError("unsupported shape: %r" % shape)
 
 

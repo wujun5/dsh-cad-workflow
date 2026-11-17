@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="460" viewBox="0 0 640 460">
+  <rect x="0" y="0" width="640" height="460" fill="#ffffff"/>
+  <g font-family="Consolas, monospace" font-size="13" fill="#000" stroke="#000">
+    <text x="10" y="20" stroke="none" font-size="16">Stepped Flange - Three Orthographic Views (unit: mm)</text>
+    <text x="10" y="38" stroke="none">Scale 4px/mm. Front=MAIN, Top, Left. Third-angle layout.</text>
+
+    <!-- ===================== FRONT VIEW (main) ===================== -->
+    <!-- base: 40 wide (160px) x 8 high (32px), origin x=60 baseline y=180 -->
+    <g>
+      <!-- base rectangle -->
+      <rect x="60" y="148" width="160" height="32" fill="none"/>
+      <!-- boss: 24 wide (96px) x 10 high (40px) centered: x=60+32=92..188 -->
+      <rect x="92" y="108" width="96" height="40" fill="none"/>
+      <!-- through hole hidden lines: dia10 (40px) centered x=140 -> 120..160 -->
+      <line x1="120" y1="108" x2="120" y2="180" stroke-dasharray="6 4"/>
+      <line x1="160" y1="108" x2="160" y2="180" stroke-dasharray="6 4"/>
+      <!-- center line -->
+      <line x1="140" y1="100" x2="140" y2="188" stroke-dasharray="12 3 2 3"/>
+
+      <!-- base width dim 40 -->
+      <line x1="60" y1="196" x2="220" y2="196"/>
+      <line x1="60" y1="192" x2="60" y2="200"/>
+      <line x1="220" y1="192" x2="220" y2="200"/>
+      <text x="128" y="212" stroke="none">40</text>
+      <!-- boss width dim 24 -->
+      <line x1="92" y1="118" x2="188" y2="118"/>
+      <text x="126" y="126" stroke="none">24</text>
+      <!-- total height 18 -->
+      <line x1="52" y1="108" x2="52" y2="180"/>
+      <line x1="48" y1="108" x2="56" y2="108"/>
+      <line x1="48" y1="180" x2="56" y2="180"/>
+      <text x="30" y="148" stroke="none">18</text>
+      <!-- base height 8 -->
+      <text x="228" y="168" stroke="none">8</text>
+      <!-- boss height 10 -->
+      <text x="228" y="132" stroke="none">10</text>
+      <text x="120" y="236" stroke="none" font-size="14">FRONT VIEW (main)</text>
+    </g>
+
+    <!-- ===================== TOP VIEW ===================== -->
+    <!-- center x=470 y=150; base R=80, boss R=48, hole R=20 -->
+    <g>
+      <circle cx="470" cy="150" r="80" fill="none"/>
+      <circle cx="470" cy="150" r="48" fill="none"/>
+      <circle cx="470" cy="150" r="20" fill="none"/>
+      <line x1="380" y1="150" x2="560" y2="150" stroke-dasharray="12 3 2 3"/>
+      <line x1="470" y1="60" x2="470" y2="240" stroke-dasharray="12 3 2 3"/>
+      <text x="430" y="258" stroke="none" font-size="14">TOP VIEW</text>
+      <text x="400" y="42" stroke="none">concentric: OD40 / boss24 / hole10</text>
+    </g>
+
+    <!-- ===================== LEFT VIEW ===================== -->
+    <!-- same profile as front (rotational part) -->
+    <g>
+      <rect x="60" y="328" width="160" height="32" fill="none"/>
+      <rect x="92" y="288" width="96" height="40" fill="none"/>
+      <line x1="120" y1="288" x2="120" y2="360" stroke-dasharray="6 4"/>
+      <line x1="160" y1="288" x2="160" y2="360" stroke-dasharray="6 4"/>
+      <line x1="140" y1="280" x2="140" y2="368" stroke-dasharray="12 3 2 3"/>
+      <text x="120" y="400" stroke="none" font-size="14">LEFT VIEW</text>
+    </g>
+
+    <!-- ===================== DIMENSION LEDGER (human/AI read result) ===================== -->
+    <g font-size="12">
+      <text x="300" y="330" stroke="none" font-weight="bold">Dimension ledger (read from views):</text>
+      <text x="300" y="352" stroke="none">base_d   = 40   (FRONT base width / TOP outer circle)</text>
+      <text x="300" y="370" stroke="none">base_h   = 8    (FRONT base height)</text>
+      <text x="300" y="388" stroke="none">boss_d   = 24   (FRONT boss width / TOP mid circle)</text>
+      <text x="300" y="406" stroke="none">boss_h   = 10   (FRONT boss height, above base)</text>
+      <text x="300" y="424" stroke="none">hole_d   = 10   (TOP inner circle / FRONT hidden lines)</text>
+    </g>
+  </g>
+</svg>

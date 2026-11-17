@@ -1,0 +1,13 @@
+{
+  "_spec": "flange-3view-spec.md",
+  "shape": "stepped_flange",
+  "source_drawing": "flange-3view.svg",
+  "reconstruction_route": "A-parametric (dimensions from annotated views)",
+  "params": {
+    "base_d": 40,
+    "base_h": 8,
+    "boss_d": 24,
+    "boss_h": 10,
+    "hole_d": 10
+  }
+}
