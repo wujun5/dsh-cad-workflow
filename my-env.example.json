@@ -1,0 +1,9 @@
+{
+  "uvx": "C:/Users/Tim/.local/bin/uvx.exe",
+  "freecadcmd": "D:/Program Files/FreeCAD 27.1/bin/FreeCADCmd.exe",
+  "blender_host": "localhost",
+  "blender_port": "9876",
+  "freecad_host": "localhost",
+  "dsh_home": "C:/Users/Tim/.dsh",
+  "dsh_profile": "desktop"
+}

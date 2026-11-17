@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Blender MCP bridge",
+    "description": "Connects DSH to the local Blender via the mcp-for-blender MCP server, exposing execute_blender_code, look, get_scene_info and asset/model generation tools. Requires the Blender addon to be enabled and its MCP server started.",
+    "detail": "docs/DETAIL.md"
+  }
+}

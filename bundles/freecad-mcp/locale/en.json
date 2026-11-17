@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "FreeCAD MCP bridge",
+    "description": "Connects DSH to the local FreeCAD via the neka-nat/freecad-mcp server, exposing document/object manipulation, Python script execution, inspection and FEM tools. Requires the FreeCAD MCP addon to be enabled and its RPC server started (127.0.0.1:9875).",
+    "detail": "docs/DETAIL.md"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "_comment": "最小闭环测试件：带孔垫片（造型简单但覆盖布尔/水密/法线/尺寸四要素）",
+  "_engine": "blender",
+  "_target": "Bambu Lab H2D",
+  "_spec": "washer-test",
+  "shape": "washer",
+  "params": {
+    "outer_d": 30,
+    "hole_d": 6.4,
+    "thickness": 3
+  },
+  "material": {
+    "type": "PLA",
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2
+  },
+  "tolerance_mm": 0.2
+}

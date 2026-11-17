@@ -1,0 +1,28 @@
+{
+  "_comment": "格式示例：键名与 example-spec.md 的 L3 参数表一一对应，单位 mm。所有数值须经确认门确认后写入。",
+  "_engine": "blender",
+  "_target": "Bambu Lab H2D",
+  "_spec": "example-spec.md",
+
+  "envelope": {
+    "length_mm": 30,
+    "width_mm": 30,
+    "height_mm": 3
+  },
+
+  "params": {
+    "p01.outer_d": 30,
+    "p01.hole_d": 6.4,
+    "p01.thickness": 3
+  },
+
+  "material": {
+    "type": "PLA",
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2
+  },
+
+  "tolerance_mm": 0.2,
+
+  "checkpoints": ["v1_base", "v2_parts"]
+}

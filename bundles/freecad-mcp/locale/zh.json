@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "FreeCAD MCP 桥接",
+    "description": "通过 neka-nat/freecad-mcp server 把 DSH 连接到本机 FreeCAD，暴露文档/对象操作、Python 脚本执行、检查与 FEM 工具。需先在 FreeCAD 启用 MCP 插件并启动其 RPC Server（127.0.0.1:9875）。",
+    "detail": "docs/DETAIL.md"
+  }
+}

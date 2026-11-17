@@ -1,0 +1,19 @@
+- insert:
+    - id: blender-mcp
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: blender
+        transport: stdio
+        command: __UVX__
+        args:
+          - --python
+          - "3.11"
+          - mcp-for-blender
+        env:
+          UV_PYTHON_PREFERENCE: only-managed
+          DISABLE_TELEMETRY: "true"
+          # Blender addon listens on __BLENDER_HOST__:__BLENDER_PORT__ by default;
+          # change these here only if you override the port in the addon panel.
+          BLENDER_HOST: __BLENDER_HOST__
+          BLENDER_PORT: __BLENDER_PORT__
+        toolCallTimeoutMs: 180000

@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Blender MCP 桥接",
+    "description": "通过 mcp-for-blender MCP server 把 DSH 连接到本机 Blender，暴露 execute_blender_code、look、get_scene_info 以及资产/模型生成工具。需先在 Blender 启用 MCP 插件并启动其 MCP Server。",
+    "detail": "docs/DETAIL.md"
+  }
+}
