@@ -66,6 +66,36 @@ def build_shape(shape, p):
         h = float(p["height"])
         return Part.makeBox(l, w, h, App.Vector(0, 0, 0))
 
+    if shape == "grooved_bracket":
+        # Three-view reconstruction from a real CAD DWG (part.dwg):
+        #   base 30(W) x 14(D) x 8(H); upright 30(W) x 8(D) x 14(H, z=8..22)
+        #   at the front; a R10 semicylindrical groove cut along depth into the
+        #   upright top (bottom z=12); two vertical through-holes dia8 in the
+        #   base at x=7.5 / 22.5, depth=7.
+        W = float(p["width"])
+        BD = float(p["base_depth"])
+        BH = float(p["base_height"])
+        UD = float(p["upright_depth"])
+        UH = float(p["upright_height"])
+        GR = float(p["groove_radius"])
+        HD = float(p["hole_diameter"])
+        HX1 = float(p["hole_x1"])
+        HX2 = float(p["hole_x2"])
+        HY = float(p["hole_y"])
+        base = Part.makeBox(W, BD, BH, App.Vector(0, 0, 0))
+        upright = Part.makeBox(W, UD, UH, App.Vector(0, 0, BH))
+        solid = base.fuse(upright)
+        # Groove: cylinder along +Y, axis at (W/2, *, BH+UH), radius GR.
+        groove = Part.makeCylinder(
+            GR, UD + 4, App.Vector(W / 2.0, -2, BH + UH), App.Vector(0, 1, 0)
+        )
+        solid = solid.cut(groove)
+        # Two vertical holes through the base only (z=-1..BH).
+        for hx in (HX1, HX2):
+            hole = Part.makeCylinder(HD / 2.0, BH + 1, App.Vector(hx, HY, -1))
+            solid = solid.cut(hole)
+        return solid.removeSplitter()
+
     if shape == "stepped_flange":
         # Classic three-view reconstruction demo: a two-step round flange with
         # a coaxial through hole. All dimensions come from the drawing's views.

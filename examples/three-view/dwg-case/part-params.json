@@ -1,0 +1,18 @@
+{
+  "_spec": "part-spec.md",
+  "shape": "grooved_bracket",
+  "source_drawing": "part.dwg",
+  "reconstruction_route": "A-parametric (dimensions reverse-engineered from DWG entity coordinates)",
+  "params": {
+    "width": 30,
+    "base_depth": 14,
+    "base_height": 8,
+    "upright_depth": 8,
+    "upright_height": 14,
+    "groove_radius": 10,
+    "hole_diameter": 8,
+    "hole_x1": 7.5,
+    "hole_x2": 22.5,
+    "hole_y": 7
+  }
+}

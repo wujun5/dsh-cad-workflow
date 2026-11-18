@@ -2,7 +2,7 @@
 
 > 把模糊的 3D 建模想法，通过「先定大方向、后逐步细化」的逐级确认流程，收敛成可交给拓竹（Bambu Lab）H2D 打印的模型——以成熟建模软件为执行引擎、DSH Agent 为编排大脑、规格文件为唯一事实源。
 
-一套给 [DeepSeek Harness (DSH)](https://github.com/deepseek-ai) 用的 **CAD 建模协作工作流包**：6 个 skill + 2 个 MCP bundle + 5 个路径无关脚本 + 规格/确认门模板。双引擎：**Blender**（造型件）/ **FreeCAD**（功能件、精确 B-rep + STEP）。支持从带尺寸标注的**三视图工程图**精确重建 3D 模型（见 [三视图原型](docs/三视图重建原型.md)）。
+一套给 [DeepSeek Harness (DSH)](https://github.com/deepseek-ai) 用的 **CAD 建模协作工作流包**：6 个 skill + 2 个 MCP bundle + 5 个路径无关脚本 + 规格/确认门模板。双引擎：**Blender**（造型件）/ **FreeCAD**（功能件、精确 B-rep + STEP）。支持从带尺寸标注的**三视图工程图**精确重建 3D 模型，含真实 CAD **DWG 逆向**实战（见 [三视图原型](docs/三视图重建原型.md) 与 [DWG 逆向实战](docs/DWG三视图逆向实战.md)）。
 
 ---
 
@@ -27,7 +27,7 @@
 
 - **逐级收敛**：L0 大方向 → L1 结构分解 → L2 特征 → L3 参数，每层经你确认才深入，可回退、有检查点。
 - **双引擎路由**：造型/手办 → Blender；功能件/装配/公差 → FreeCAD。
-- **三视图重建**：带尺寸标注的工程图 → 读尺寸 → params → 精确 3D（`cad-three-view`，见 [原型](docs/三视图重建原型.md)）。
+- **三视图重建**：带尺寸标注的工程图 / 真实 CAD DWG → 读尺寸 → params → 精确 3D（`cad-three-view`，见 [原型](docs/三视图重建原型.md) 与 [DWG 逆向实战](docs/DWG三视图逆向实战.md)）。
 - **多通道建模**：Blender MCP 实时 / bpy 后台；FreeCAD headless 代码即模型（推荐）/ MCP headless / MCP 实时。
 - **打印性校验**：水密、法线朝向、体积为正三道自动门槛（trimesh），壁厚交人工核验，绝不伪造 PASS。
 - **可打印交付**：STL / 3MF / FreeCAD 独有的 STEP，最终进 Bambu Studio 切片送 H2D。
@@ -42,7 +42,8 @@ dsh-cad-workflow/
 │   ├── 普适化使用方案.md          安装、跨工作区、换机器、多用户
 │   ├── 持久化与迁移.md             重启/迁移行为与故障排查
 │   ├── 架构说明.md                 六层栈、确认门、状态机
-│   └── 三视图重建原型.md            带尺寸三视图→3D 的最小原型与实测结果
+│   ├── 三视图重建原型.md            带尺寸三视图→3D 的最小原型与实测结果
+│   └── DWG三视图逆向实战.md         真实 CAD DWG → 3D 的完整逆向案例（part.dwg）
 ├── skills/                       6 个 skill 源（安装到 ~/.dsh/skills/）
 │   ├── cad-spec-driver/
 │   ├── cad-confirm-gate/
@@ -67,7 +68,9 @@ dsh-cad-workflow/
 │   ├── example-spec.md
 │   ├── example-params.json
 │   ├── washer-test.json
-│   └── three-view/                三视图重建示例（带尺寸 SVG + spec + params）
+│   └── three-view/                三视图重建示例
+│       ├── flange-3view.*         带尺寸 SVG + spec + params（台阶法兰）
+│       └── dwg-case/              真实 DWG 逆向案例（转换/解析/校验脚本 + spec + params）
 ├── my-env.example.json           本机路径配置模板（复制为 my-env.json 填写）
 └── install/
     ├── configure.ps1             用 my-env.json 渲染 bundle 里的本机绝对路径
